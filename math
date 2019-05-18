@@ -67,20 +67,6 @@ namespace std {
       template <FloatingPoint T> inline constexpr T egamma_v<T>     = 0.577215664901532860606512090082402431L;
       template <FloatingPoint T> inline constexpr T phi_v<T>        = 1.618033988749894848204586834365638117L;
 
-      inline constexpr float ef          = e_v<float>;
-      inline constexpr float log2ef      = log2e_v<float>;
-      inline constexpr float log10ef     = log10e_v<float>;
-      inline constexpr float pif         = pi_v<float>;
-      inline constexpr float inv_pif     = inv_pi_v<float>;
-      inline constexpr float inv_sqrtpif = inv_sqrtpi_v<float>;
-      inline constexpr float ln2f        = ln2_v<float>;
-      inline constexpr float ln10f       = ln10_v<float>;
-      inline constexpr float sqrt2f      = sqrt2_v<float>;
-      inline constexpr float sqrt3f      = sqrt3_v<float>;
-      inline constexpr float inv_sqrt3f  = inv_sqrt3_v<float>;
-      inline constexpr float egammaf     = egamma_v<float>;
-      inline constexpr float phif        = phi_v<float>;
-         
       inline constexpr double e          = e_v<double>;
       inline constexpr double log2e      = log2e_v<double>;
       inline constexpr double log10e     = log10e_v<double>;
@@ -95,19 +81,5 @@ namespace std {
       inline constexpr double egamma     = egamma_v<double>;
       inline constexpr double phi        = phi_v<double>;
          
-      inline constexpr long double el          = e_v<long double>;
-      inline constexpr long double log2el      = log2e_v<long double>;
-      inline constexpr long double log10el     = log10e_v<long double>;
-      inline constexpr long double pil         = pi_v<long double>;
-      inline constexpr long double inv_pil     = inv_pi_v<long double>;
-      inline constexpr long double inv_sqrtpil = inv_sqrtpi_v<long double>;
-      inline constexpr long double ln2l        = ln2_v<long double>;
-      inline constexpr long double ln10l       = ln10_v<long double>;
-      inline constexpr long double sqrt2l      = sqrt2_v<long double>;
-      inline constexpr long double sqrt3l      = sqrt3_v<long double>;
-      inline constexpr long double inv_sqrt3l  = inv_sqrt3_v<long double>;
-      inline constexpr long double egammal     = egamma_v<long double>;
-      inline constexpr long double phil        = phi_v<long double>;
-
    }
 }
