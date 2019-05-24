@@ -72,48 +72,6 @@ namespace std {
       template <FloatingPoint T> inline constexpr T egamma_v<T>     = 0.577215664901532860606512090082402431L;
       template <FloatingPoint T> inline constexpr T phi_v<T>        = 1.618033988749894848204586834365638117L;
 
-      template float e_v<float>;         
-      template float log2e_v<float>;     
-      template float log10e_v<float>;    
-      template float pi_v<float>;        
-      template float inv_pi_v<float>;    
-      template float inv_sqrtpi_v<float>;
-      template float ln2_v<float>;       
-      template float ln10_v<float>;      
-      template float sqrt2_v<float>;     
-      template float sqrt3_v<float>;     
-      template float inv_sqrt3_v<float>; 
-      template float egamma_v<float>;    
-      template float phi_v<float>;       
-
-      template double e_v<double>;         
-      template double log2e_v<double>;     
-      template double log10e_v<double>;    
-      template double pi_v<double>;        
-      template double inv_pi_v<double>;    
-      template double inv_sqrtpi_v<double>;
-      template double ln2_v<double>;       
-      template double ln10_v<double>;      
-      template double sqrt2_v<double>;     
-      template double sqrt3_v<double>;     
-      template double inv_sqrt3_v<double>; 
-      template double egamma_v<double>;    
-      template double phi_v<double>;       
-
-      template long double e_v<long double>;         
-      template long double log2e_v<long double>;     
-      template long double log10e_v<long double>;    
-      template long double pi_v<long double>;        
-      template long double inv_pi_v<long double>;    
-      template long double inv_sqrtpi_v<long double>;
-      template long double ln2_v<long double>;       
-      template long double ln10_v<long double>;      
-      template long double sqrt2_v<long double>;     
-      template long double sqrt3_v<long double>;     
-      template long double inv_sqrt3_v<long double>; 
-      template long double egamma_v<long double>;    
-      template long double phi_v<long double>;       
-
       inline constexpr double e          = e_v<double>;
       inline constexpr double log2e      = log2e_v<double>;
       inline constexpr double log10e     = log10e_v<double>;
