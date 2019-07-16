@@ -5,7 +5,7 @@
 
    template<class T> concept FloatingPoint = is_floating_point_v<T>;
 
-   Copyright © 2019 Lev Minkovsky
+   Copyright ï¿½ 2019 Lev Minkovsky
 
    MIT License
 
@@ -60,7 +60,7 @@ namespace std {
       template <typename T> inline constexpr T inv_sqrt3_v  = __invalidTemplate<T>();
       template <typename T> inline constexpr T egamma_v     = __invalidTemplate<T>();
       template <typename T> inline constexpr T phi_v        = __invalidTemplate<T>();
-         
+
       template <FloatingPoint T> inline constexpr T e_v<T>          = 2.718281828459045235360287471352662498L;
       template <FloatingPoint T> inline constexpr T log2e_v<T>      = 1.442695040888963407359924681001892137L;
       template <FloatingPoint T> inline constexpr T log10e_v<T>     = 0.434294481903251827651128918916605082L;
@@ -88,6 +88,6 @@ namespace std {
       inline constexpr double inv_sqrt3  = inv_sqrt3_v<double>;
       inline constexpr double egamma     = egamma_v<double>;
       inline constexpr double phi        = phi_v<double>;
-         
+
    }
 }

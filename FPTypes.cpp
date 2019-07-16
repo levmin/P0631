@@ -114,7 +114,7 @@ static_assert(std::math::pi == (double)3.141'592'653'589'793'0L);
 template<> inline constexpr myfptype std::math::pi_v<myfptype>
 {3'141'592'653'589'793'238L, 1'000'000'000'000'000'000L, 1};
 
-//The internal precision of hp_pi is 19 decimal digits. 
+//The internal precision of hp_pi is 19 decimal digits.
 constexpr myfptype hp_pi = std::math::pi_v<myfptype>;
 constexpr myfptype almost_pi{ 3'141'592'653'589'793'237L, 1'000'000'000'000'000'000L, 1 };
 
@@ -154,7 +154,7 @@ public:
    constexpr DynamicBigNumFPType (double value, int precision) :m_state(value), m_precision(precision) {};
    void setPrecision(int precision) { m_precision = precision; }
    //notice that getPI() isn't constexpr or static, because pi is no longer deemed as a constant but rather as an algorithm running until a certain precision is achieved
-   //the real implementation would calculate pi based upon m_precision and construct DynamicBigNumFPType from it  
+   //the real implementation would calculate pi based upon m_precision and construct DynamicBigNumFPType from it
    DynamicBigNumFPType getPI() { return DynamicBigNumFPType(std::math::pi, m_precision); }
    double roundToDouble() const { return m_state; }
 private:
