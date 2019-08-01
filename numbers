@@ -30,7 +30,7 @@
    #include <concepts>
 #elif defined(__cpp_concepts)
    #include <type_traits>
-template<class T> concept floating_point = std::is_floating_point_v<T>;
+   template<class T> concept floating_point = std::is_floating_point_v<T>;
    #define __cpp_lib_math_constants 201907L
 #endif
 
@@ -112,7 +112,8 @@ namespace std {
       __INLINE constexpr double inv_sqrt3 = inv_sqrt3_v<double>;
       __INLINE constexpr double egamma = egamma_v<double>;
       __INLINE constexpr double phi = phi_v<double>;
-      #undef __INLINE
    }
 }
+
+#undef __INLINE
 #endif
