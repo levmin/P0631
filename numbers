@@ -1,7 +1,7 @@
 /*
    Reference implementation of the  <numbers> header for https://wg21.link/P0631.
 
-   Copyright � 2019 Lev Minkovsky
+   Copyright © 2019 Lev Minkovsky
 
    MIT License
 
@@ -24,66 +24,95 @@
    THE SOFTWARE.
 */
 
+#ifdef __cpp_variable_templates
+
 #if __has_include(<concepts>)
    #include <concepts>
-#else
+#elif defined(__cpp_concepts)
    #include <type_traits>
-   template<class T> concept floating_point = std::is_floating_point_v<T>;
+template<class T> concept floating_point = std::is_floating_point_v<T>;
+   #define __cpp_lib_math_constants 201907L
 #endif
-#if __has_include(<version>)
-   #include <version>
-#endif
+
+#ifdef __cpp_inline_variables
+   #define __INLINE inline
+#else
+   #define __INLINE 
+#endif	
 
 namespace std {
    namespace numbers {
 
-      template<typename> inline constexpr bool __always_false = false;
+      template<typename> __INLINE constexpr bool __always_false = false;
 
-      template<typename T> inline constexpr T __invalidTemplate() {
+      template<typename T> __INLINE constexpr T __invalidTemplate() {
          static_assert(__always_false<T>, "This template needs to be specialized."); return T();
       }
 
-      template <typename T> inline constexpr T e_v          = __invalidTemplate<T>();
-      template <typename T> inline constexpr T log2e_v      = __invalidTemplate<T>();
-      template <typename T> inline constexpr T log10e_v     = __invalidTemplate<T>();
-      template <typename T> inline constexpr T pi_v         = __invalidTemplate<T>();
-      template <typename T> inline constexpr T inv_pi_v     = __invalidTemplate<T>();
-      template <typename T> inline constexpr T inv_sqrtpi_v = __invalidTemplate<T>();
-      template <typename T> inline constexpr T ln2_v        = __invalidTemplate<T>();
-      template <typename T> inline constexpr T ln10_v       = __invalidTemplate<T>();
-      template <typename T> inline constexpr T sqrt2_v      = __invalidTemplate<T>();
-      template <typename T> inline constexpr T sqrt3_v      = __invalidTemplate<T>();
-      template <typename T> inline constexpr T inv_sqrt3_v  = __invalidTemplate<T>();
-      template <typename T> inline constexpr T egamma_v     = __invalidTemplate<T>();
-      template <typename T> inline constexpr T phi_v        = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T e_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T log2e_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T log10e_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T pi_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T inv_pi_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T inv_sqrtpi_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T ln2_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T ln10_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T sqrt2_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T sqrt3_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T inv_sqrt3_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T egamma_v = __invalidTemplate<T>();
+      template <typename T> __INLINE constexpr T phi_v = __invalidTemplate<T>();
 
-      template <floating_point T> inline constexpr T e_v<T>          = 2.718281828459045235360287471352662498L;
-      template <floating_point T> inline constexpr T log2e_v<T>      = 1.442695040888963407359924681001892137L;
-      template <floating_point T> inline constexpr T log10e_v<T>     = 0.434294481903251827651128918916605082L;
-      template <floating_point T> inline constexpr T pi_v<T>         = 3.141592653589793238462643383279502884L;
-      template <floating_point T> inline constexpr T inv_pi_v<T>     = 0.318309886183790671537767526745028724L;
-      template <floating_point T> inline constexpr T inv_sqrtpi_v<T> = 0.564189583547756286948079451560772586L;
-      template <floating_point T> inline constexpr T ln2_v<T>        = 0.693147180559945309417232121458176568L;
-      template <floating_point T> inline constexpr T ln10_v<T>       = 2.302585092994045684017991454684364208L;
-      template <floating_point T> inline constexpr T sqrt2_v<T>      = 1.414213562373095048801688724209698078L;
-      template <floating_point T> inline constexpr T sqrt3_v<T>      = 1.732050807568877293527446341505872366L;
-      template <floating_point T> inline constexpr T inv_sqrt3_v<T>  = 0.577350269189625764509148780501957456L;
-      template <floating_point T> inline constexpr T egamma_v<T>     = 0.577215664901532860606512090082402431L;
-      template <floating_point T> inline constexpr T phi_v<T>        = 1.618033988749894848204586834365638117L;
+      #ifdef __cpp_lib_math_constants
+         template <floating_point T> __INLINE constexpr T e_v<T> = 2.718281828459045235360287471352662498L;
+         template <floating_point T> __INLINE constexpr T log2e_v<T> = 1.442695040888963407359924681001892137L;
+         template <floating_point T> __INLINE constexpr T log10e_v<T> = 0.434294481903251827651128918916605082L;
+         template <floating_point T> __INLINE constexpr T pi_v<T> = 3.141592653589793238462643383279502884L;
+         template <floating_point T> __INLINE constexpr T inv_pi_v<T> = 0.318309886183790671537767526745028724L;
+         template <floating_point T> __INLINE constexpr T inv_sqrtpi_v<T> = 0.564189583547756286948079451560772586L;
+         template <floating_point T> __INLINE constexpr T ln2_v<T> = 0.693147180559945309417232121458176568L;
+         template <floating_point T> __INLINE constexpr T ln10_v<T> = 2.302585092994045684017991454684364208L;
+         template <floating_point T> __INLINE constexpr T sqrt2_v<T> = 1.414213562373095048801688724209698078L;
+         template <floating_point T> __INLINE constexpr T sqrt3_v<T> = 1.732050807568877293527446341505872366L;
+         template <floating_point T> __INLINE constexpr T inv_sqrt3_v<T> = 0.577350269189625764509148780501957456L;
+         template <floating_point T> __INLINE constexpr T egamma_v<T> = 0.577215664901532860606512090082402431L;
+         template <floating_point T> __INLINE constexpr T phi_v<T> = 1.618033988749894848204586834365638117L;
+      #else
+         #define MATH_CONSTANT_DEF(name,value) \
+		      template <> __INLINE constexpr float name<float> = (float)value; \
+		      template <> __INLINE constexpr double name<double> = (double)value; \
+		      template <> __INLINE constexpr long double name<long double> = (long double)value; 
+         MATH_CONSTANT_DEF(e_v, 2.718281828459045235360287471352662498L)
+         MATH_CONSTANT_DEF(log2e_v, 1.442695040888963407359924681001892137L)
+         MATH_CONSTANT_DEF(log10e_v, 0.434294481903251827651128918916605082L)
+         MATH_CONSTANT_DEF(pi_v, 3.141592653589793238462643383279502884L)
+         MATH_CONSTANT_DEF(inv_pi_v, 0.318309886183790671537767526745028724L)
+         MATH_CONSTANT_DEF(inv_sqrtpi_v, 0.564189583547756286948079451560772586L)
+         MATH_CONSTANT_DEF(ln2_v, 0.693147180559945309417232121458176568L)
+         MATH_CONSTANT_DEF(ln10_v, 2.302585092994045684017991454684364208L)
+         MATH_CONSTANT_DEF(sqrt2_v, 1.414213562373095048801688724209698078L)
+         MATH_CONSTANT_DEF(sqrt3_v, 1.732050807568877293527446341505872366L)
+         MATH_CONSTANT_DEF(inv_sqrt3_v, 0.577350269189625764509148780501957456L)
+         MATH_CONSTANT_DEF(egamma_v, 0.577215664901532860606512090082402431L)
+         MATH_CONSTANT_DEF(phi_v, 1.618033988749894848204586834365638117L)
+         #undef  MATH_CONSTANT_DEF
+         #define __cpp_lib_math_constants 201907L
+      #endif
 
-      inline constexpr double e          = e_v<double>;
-      inline constexpr double log2e      = log2e_v<double>;
-      inline constexpr double log10e     = log10e_v<double>;
-      inline constexpr double pi         = pi_v<double>;
-      inline constexpr double inv_pi     = inv_pi_v<double>;
-      inline constexpr double inv_sqrtpi = inv_sqrtpi_v<double>;
-      inline constexpr double ln2        = ln2_v<double>;
-      inline constexpr double ln10       = ln10_v<double>;
-      inline constexpr double sqrt2      = sqrt2_v<double>;
-      inline constexpr double sqrt3      = sqrt3_v<double>;
-      inline constexpr double inv_sqrt3  = inv_sqrt3_v<double>;
-      inline constexpr double egamma     = egamma_v<double>;
-      inline constexpr double phi        = phi_v<double>;
-
+      __INLINE constexpr double e = e_v<double>;
+      __INLINE constexpr double log2e = log2e_v<double>;
+      __INLINE constexpr double log10e = log10e_v<double>;
+      __INLINE constexpr double pi = pi_v<double>;
+      __INLINE constexpr double inv_pi = inv_pi_v<double>;
+      __INLINE constexpr double inv_sqrtpi = inv_sqrtpi_v<double>;
+      __INLINE constexpr double ln2 = ln2_v<double>;
+      __INLINE constexpr double ln10 = ln10_v<double>;
+      __INLINE constexpr double sqrt2 = sqrt2_v<double>;
+      __INLINE constexpr double sqrt3 = sqrt3_v<double>;
+      __INLINE constexpr double inv_sqrt3 = inv_sqrt3_v<double>;
+      __INLINE constexpr double egamma = egamma_v<double>;
+      __INLINE constexpr double phi = phi_v<double>;
+      #undef __INLINE
    }
 }
+#endif
