@@ -28,6 +28,7 @@
 
 #if __has_include(<concepts>)
    #include <concepts>
+   #define __cpp_lib_math_constants 201907L
 #elif defined(__cpp_concepts)
    #include <type_traits>
    template<class T> concept floating_point = std::is_floating_point_v<T>;
